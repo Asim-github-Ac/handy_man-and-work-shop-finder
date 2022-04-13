@@ -31,7 +31,6 @@
             android:ems="10"
             android:letterSpacing="0.1"
             android:textAlignment="center"
-            android:maxLength="6"
             android:inputType="numberDecimal"
             />
 

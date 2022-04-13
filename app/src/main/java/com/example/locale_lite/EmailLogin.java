@@ -28,7 +28,6 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 public class EmailLogin extends AppCompatActivity {
-
     TextView useMobile, signup;
     TextView reset;
     EditText email, pwd;
@@ -37,12 +36,10 @@ public class EmailLogin extends AppCompatActivity {
     private FirebaseAuth mAuth;
     LinearLayout mainLayout;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.email_login);
-
         email = (EditText) findViewById(R.id.editEmail);
         pwd = (EditText) findViewById(R.id.editPassword);
         login = (Button) findViewById(R.id.login);
@@ -75,8 +72,6 @@ public class EmailLogin extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-
-
         login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

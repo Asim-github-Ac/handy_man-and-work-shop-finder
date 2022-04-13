@@ -71,7 +71,7 @@
             android:layout_marginLeft="30dp"
 
             android:layout_marginTop="7dp"
-            android:text="+91"
+            android:text="+92"
             android:textSize="18sp"
             tools:layout_editor_absoluteX="4dp"
             tools:layout_editor_absoluteY="349dp" />

@@ -59,7 +59,7 @@ public class Login extends AppCompatActivity  {
                                             p=1;
                                             intent = new Intent(Login.this, OTP.class);
                                             intent.putExtra("type","Customers");
-                                            intent.putExtra("phonenumber", "+91" + phone);
+                                            intent.putExtra("phonenumber", "+92" + phone);
                                             startActivity(intent);
                                             break;
                                         }
