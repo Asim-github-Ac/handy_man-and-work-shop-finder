@@ -16,6 +16,7 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.fyp.locale_lite.Activity.Customer_DashBoard;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
@@ -108,7 +109,7 @@ public class EmailLogin extends AppCompatActivity {
 
                                                 if (count == 1) {
                                                     Toast.makeText(EmailLogin.this, "Logged in", Toast.LENGTH_SHORT).show();
-                                                    Intent intent = new Intent(EmailLogin.this, Main2Activity.class);
+                                                    Intent intent = new Intent(EmailLogin.this, Customer_DashBoard.class);
                                                     startActivity(intent);
                                                     finish();
                                                 } else {
