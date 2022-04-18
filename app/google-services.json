@@ -111,6 +111,35 @@
     },
     {
       "client_info": {
+        "mobilesdk_app_id": "1:525085736032:android:7efca1a52ae2e760971705",
+        "android_client_info": {
+          "package_name": "com.fyp.locale_lite"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "525085736032-48r5987puqdkfnf2m17vnm9avgq7c4iq.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDI9JM-XRv0FENDlIY_V3kL2CEIRW4iCA8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "525085736032-48r5987puqdkfnf2m17vnm9avgq7c4iq.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
         "mobilesdk_app_id": "1:525085736032:android:29686c54024fb820971705",
         "android_client_info": {
           "package_name": "com.tech.insta.down"

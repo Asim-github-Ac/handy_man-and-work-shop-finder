@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="16dp"
-    tools:context=".ShowPendingRequest">
+    tools:context="com.fyp.locale_lite.ShowPendingRequest">
 
     <LinearLayout
         android:layout_width="match_parent"

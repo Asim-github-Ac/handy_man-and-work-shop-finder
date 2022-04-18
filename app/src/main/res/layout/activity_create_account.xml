@@ -19,7 +19,7 @@
         android:orientation="vertical"
         android:padding="30dp"
         android:weightSum="16"
-        tools:context=".CreateAccount">
+        tools:context="com.fyp.locale_lite.CreateAccount">
 
         <ImageView
             android:id="@+id/logo"

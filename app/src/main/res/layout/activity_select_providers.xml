@@ -7,7 +7,7 @@
     android:orientation="vertical"
     android:background="#ffffff"
     android:padding="10dp"
-    tools:context=".selectProviders">
+    tools:context="com.fyp.locale_lite.selectProviders">
 
     <ImageView
         android:layout_width="300dp"

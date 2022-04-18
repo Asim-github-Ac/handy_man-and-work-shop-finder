@@ -7,7 +7,7 @@
     android:orientation="vertical"
     android:background="#ffffff"
     android:padding="10dp"
-    tools:context=".RequestStatus">
+    tools:context="com.fyp.locale_lite.RequestStatus">
 
     <ImageView
         android:layout_width="300dp"
