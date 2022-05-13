@@ -13,7 +13,7 @@ import androidx.viewpager.widget.ViewPager;
 
 public class getStarted extends AppCompatActivity {
 
-    Button createNew;
+    Button createNew,adminlogin;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -24,6 +24,7 @@ public class getStarted extends AppCompatActivity {
         viewPager.setAdapter(adapter);
 
         createNew = (Button) findViewById(R.id.createnew);
+        adminlogin=findViewById(R.id.adminlogin);
         createNew.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

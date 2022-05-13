@@ -15,6 +15,7 @@ import android.widget.LinearLayout;
 import android.widget.Toast;
 
 import com.fyp.locale_lite.Activity.Customer_DashBoard;
+import com.fyp.locale_lite.Admin_panel.Admin_Login;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
@@ -125,6 +126,13 @@ Handler handler;
             public void onClick(View view) {
                 Intent intent = new Intent(MainActivity.this, CreateAccount.class);
                 startActivity(intent);
+            }
+        });
+        Button btnadmin=findViewById(R.id.adminloginmain);
+        btnadmin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getApplicationContext(), Admin_Login.class));
             }
         });
         Button logIn = (Button) findViewById(R.id.login);

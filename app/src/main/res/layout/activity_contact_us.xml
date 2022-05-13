@@ -30,7 +30,7 @@
                 android:layout_marginTop="50dp"
                 android:layout_marginLeft="10dp"
                 android:textSize="17dp"
-                android:text="+91- 9546121700"
+                android:text="+923057725136"
                 android:clickable="true"/>
 <!--                android:textColor="@color/wallet_holo_blue_light"/>-->
 
@@ -59,7 +59,7 @@
                 android:layout_marginTop="20dp"
                 android:layout_marginLeft="10dp"
                 android:textSize="17dp"
-                android:text="handyman@firebase.com"
+                android:text="carigar@firebase.com"
                 android:clickable="true"/>
 <!--                android:textColor="@color/wallet_holo_blue_light"/>-->
 

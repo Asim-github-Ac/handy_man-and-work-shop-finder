@@ -18,13 +18,18 @@
         android:weightSum="16"
         tools:context=".ProfileSP">
 
-        <ImageView
+        <TextView
             android:id="@+id/logo2"
             android:layout_width="120dp"
             android:layout_height="40dp"
             android:layout_marginBottom="10dp"
             android:layout_weight="2"
-            app:srcCompat="@drawable/logo" />
+            android:gravity="center"
+            android:textColor="#FF9800"
+            android:text="Carigar"
+            android:textSize="30dp"
+            android:textStyle="bold"
+           />
 
         <TextView
             android:id="@+id/Create"

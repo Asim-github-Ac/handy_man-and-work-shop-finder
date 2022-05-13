@@ -18,6 +18,15 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
+            android:name=".Admin_panel.View_Activity_Admins"
+            android:exported="false" />
+        <activity
+            android:name=".Admin_panel.Home_Page_Admin"
+            android:exported="false" />
+        <activity
+            android:name=".Admin_panel.Admin_Login"
+            android:exported="false" />
+        <activity
             android:name=".Activity.Customer_DashBoard"
             android:exported="false" />
         <activity android:name=".ShowCompletedRequest" />

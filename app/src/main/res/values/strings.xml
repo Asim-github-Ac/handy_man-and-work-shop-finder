@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">HandyMan</string>
+    <string name="app_name">Carigar</string>
     <string-array name="Cities">
         <item>Select City</item>
         <item>Faisalabad</item>
@@ -10,18 +10,6 @@
         <item>AC Repairing</item>
         <item>Carpenter</item>
         <item>Ceiling Repair</item>
-        <item>Cleaning</item>
-        <item>Electrician</item>
-        <item>Flooring Installation</item>
-        <item>Gardener</item>
-        <item>General Maintenance</item>
-        <item>Gutter Maintenance</item>
-        <item>Interior Designing</item>
-        <item>Maid Service</item>
-        <item>Painter</item>
-        <item>Plumber</item>
-        <item>Pest Control</item>
-        <item>Water Purification</item>
         <item>Others</item>
 
     </string-array>
