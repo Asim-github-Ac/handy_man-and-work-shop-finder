@@ -96,13 +96,11 @@ public class Signup_OTP extends AppCompatActivity {
                         }else{
                             Bundle bundle = getIntent().getExtras();
 
-                            Toast.makeText(Signup_OTP.this,"Wrong OTP!"
-                                    , Toast.LENGTH_LONG).show();  Intent intent = new Intent(Signup_OTP.this, asklocation.class);
+                            Intent intent = new Intent(Signup_OTP.this, asklocation.class);
                             intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                             intent.putExtras(bundle);
                             startActivity(intent);
                             finish();
-
                         }
                     }
                 });

@@ -32,6 +32,7 @@ import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.util.ArrayList;
+import java.util.Random;
 
 public class CreateAccount<findView> extends AppCompatActivity implements AdapterView.OnItemSelectedListener{
 
@@ -146,7 +147,7 @@ public class CreateAccount<findView> extends AppCompatActivity implements Adapte
                                 @Override
                                 public void onComplete(@NonNull final Task<AuthResult> task) {
                                     progressBar.setVisibility(View.GONE);
-                                    AddUserData();
+
                                     final String phone = phoneNum.getText().toString();
                                     FirebaseDatabase.getInstance().getReference().child("ServiceProviders")
                                             .addValueEventListener(new ValueEventListener() {
@@ -271,7 +272,7 @@ public class CreateAccount<findView> extends AppCompatActivity implements Adapte
                                                     }
                                                     else if (p==0 && task.isSuccessful()) {
                                                         String phoneNumber = "+91" + phonenum;
-                                                        Intent intent = new Intent(CreateAccount.this, Signup_OTP.class);
+                                                        Intent intent = new Intent(CreateAccount.this, asklocation.class);
                                                         intent.putExtra("phonenumber", phoneNumber);
                                                         intent.putExtras(bundle);
                                                         startActivity(intent);
@@ -347,28 +348,5 @@ public class CreateAccount<findView> extends AppCompatActivity implements Adapte
     public void onNothingSelected(AdapterView<?> parent) {
 
     }
-    public void AddUserData(){
-        final String firstname = firstName.getText().toString().trim();
-        final String lastname = lastName.getText().toString().trim();
-        final String emailid = emailId.getText().toString();
-        final String phonenum = phoneNum.getText().toString();
-        final String city = cityList.getSelectedItem().toString();
-        final String pword = password.getText().toString();
-        final String cpword = cpassword.getText().toString();
-        final String category = categories.getSelectedItem().toString();
-        FirebaseFirestore firebaseFirestore=FirebaseFirestore.getInstance();
-        ServiceProviderModel serviceProviders=new ServiceProviderModel(category,firstname,lastname,emailid,phonenum,city);
-        firebaseFirestore.collection("WorkShopFinder").document("data").collection("category").add(serviceProviders).addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
-            @Override
-            public void onSuccess(DocumentReference documentReference) {
-                Toast.makeText(CreateAccount.this, "Data Successfully added", Toast.LENGTH_SHORT).show();
-            }
-        }).addOnFailureListener(new OnFailureListener() {
-            @Override
-            public void onFailure(@NonNull Exception e) {
-                Toast.makeText(CreateAccount.this, "Error"+e.getMessage(), Toast.LENGTH_SHORT).show();
-            }
-        });
 
-    }
 }

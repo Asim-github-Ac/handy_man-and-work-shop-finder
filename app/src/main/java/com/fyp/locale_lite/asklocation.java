@@ -18,6 +18,7 @@ import android.widget.RadioGroup;
 import android.widget.Toast;
 
 import com.fyp.locale_lite.Activity.Customer_DashBoard;
+import com.fyp.locale_lite.Model.ServiceProviderModel;
 import com.google.android.gms.location.FusedLocationProviderClient;
 import com.google.android.gms.location.LocationServices;
 import com.google.android.gms.maps.CameraUpdateFactory;
@@ -29,11 +30,16 @@ import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.FirebaseFirestore;
+
+import java.util.Random;
 
 public class asklocation extends FragmentActivity implements OnMapReadyCallback, GoogleMap.OnMyLocationClickListener,
         GoogleMap.OnMyLocationButtonClickListener {
@@ -115,9 +121,12 @@ public class asklocation extends FragmentActivity implements OnMapReadyCallback,
                 String lastname = bundle.getString("lastname");
                 String emailid = bundle.getString("emailid");
                 String phonenum = bundle.getString("phonenum");
+                String lati= String.valueOf(position.latitude);
+                String longi=String.valueOf(position.longitude);
                 String city = bundle.getString("city");
 
 
+                AddUserData(firstname,lastname,emailid,phonenum,"cat",city,lati,longi);
                 Customers customer = new Customers(firstname, lastname, emailid, phonenum, city);
                 customer.setLatitude(position.latitude);
                 customer.setLongitude(position.longitude);
@@ -180,5 +189,30 @@ public class asklocation extends FragmentActivity implements OnMapReadyCallback,
     @Override
     public boolean onMyLocationButtonClick() {
         return false;
+    }
+    public void AddUserData(String fname,String lname,String email,String phone,String cat,String city,String lati,String longi){
+        FirebaseFirestore firebaseFirestore=FirebaseFirestore.getInstance();
+        ServiceProviderModel serviceProviders=new ServiceProviderModel(cat,fname,lname,email,phone,city,getRandomNumberString(),lati,longi);
+        firebaseFirestore.collection("WorkShopFinder").document("data").collection("category").add(serviceProviders).addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
+            @Override
+            public void onSuccess(DocumentReference documentReference) {
+                Toast.makeText(asklocation.this, "Data Added", Toast.LENGTH_SHORT).show();
+            }
+        }).addOnFailureListener(new OnFailureListener() {
+            @Override
+            public void onFailure(@NonNull Exception e) {
+
+                Toast.makeText(asklocation.this, "error"+e.getMessage(), Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
+    public static String getRandomNumberString() {
+        // It will generate 6 digit random Number.
+        // from 0 to 999999
+        Random rnd = new Random();
+        int number = rnd.nextInt(999999);
+
+        // this will convert any number sequence into 6 character.
+        return String.format("%06d", number);
     }
 }

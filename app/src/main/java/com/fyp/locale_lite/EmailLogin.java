@@ -17,6 +17,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.fyp.locale_lite.Activity.Customer_DashBoard;
+import com.fyp.locale_lite.SharedPrefrence.PrefManager;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
@@ -76,10 +77,13 @@ public class EmailLogin extends AppCompatActivity {
         login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
+                PrefManager prefManager=new PrefManager(getApplicationContext());
                 InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
                 imm.hideSoftInputFromWindow(mainLayout.getWindowToken(), 0);
                 final String emailid = email.getText().toString();
                 final String pword = pwd.getText().toString();
+                prefManager.setUserEmail(emailid);
                 if (email.getText().toString().isEmpty() || !Patterns.EMAIL_ADDRESS.matcher(email.getText().toString()).matches())
                     email.setError("Enter valid Email Id!");
                 else if (pwd.getText().toString().isEmpty())

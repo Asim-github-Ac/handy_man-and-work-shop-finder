@@ -6,6 +6,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -13,6 +14,9 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.fyp.locale_lite.Adapters.CustomerAdapter;
 import com.fyp.locale_lite.Model.ServiceProviderModel;
 import com.fyp.locale_lite.R;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.util.List;
 
@@ -46,6 +50,18 @@ public class Admin_Adapter extends RecyclerView.Adapter<Admin_Adapter.myHolder> 
             @Override
             public void onClick(View v) {
 
+                FirebaseFirestore firestore=FirebaseFirestore.getInstance();
+                firestore.collection("WorkShopFinder").document("data").collection("category").document().delete().addOnSuccessListener(new OnSuccessListener<Void>() {
+                    @Override
+                    public void onSuccess(Void unused) {
+
+                    }
+                }).addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+                        Toast.makeText(context, "Error"+e.getMessage(), Toast.LENGTH_SHORT).show();
+                    }
+                });
             }
         });
     }
