@@ -23,23 +23,27 @@
                 android:text="Mechanic Name"
                 android:id="@+id/mec_name"
                 android:padding="10dp"
+                android:textStyle="bold"
                 />
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:padding="10dp"
+                android:textStyle="bold"
                 android:id="@+id/cus_email"
                 android:text="Customer Email"/>
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:padding="10dp"
+                android:textStyle="bold"
                 android:id="@+id/mec_number"
                 android:text="Mechanic Number"/>
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:padding="10dp"
+                android:textStyle="bold"
                 android:id="@+id/mec_city"
                 android:text="Mechanic City"/>
         </LinearLayout>

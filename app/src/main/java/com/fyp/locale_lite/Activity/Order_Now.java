@@ -32,7 +32,7 @@ public class Order_Now extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_order_now);
         recyclerView=findViewById(R.id.recy_order);
-        progressDialog=new ProgressDialog(getApplicationContext());
+        progressDialog=new ProgressDialog(this);
         progressDialog.setTitle("Order List");
         progressDialog.setMessage("Loadings........");
         progressDialog.setCancelable(true);
