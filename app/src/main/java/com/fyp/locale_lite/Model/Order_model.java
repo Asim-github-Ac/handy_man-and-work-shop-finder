@@ -10,6 +10,9 @@ public class Order_model {
         this.mechanic_Phone = mechanic_Phone;
     }
 
+    public Order_model() {
+    }
+
     public String getCustomer_email() {
         return customer_email;
     }

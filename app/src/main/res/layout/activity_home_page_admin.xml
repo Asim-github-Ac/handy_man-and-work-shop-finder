@@ -34,7 +34,6 @@
         android:textSize="20dp"
         tools:ignore="HardcodedText,RtlSymmetry,SpUsage,UnusedAttribute" />
     <Button
-
         android:id="@+id/view_Customer_admin"
         android:layout_width="match_parent"
         android:layout_height="70dp"
@@ -49,6 +48,25 @@
         android:paddingStart="15dp"
         android:stateListAnimator="@null"
         android:text="View Customer"
+        android:textAlignment="gravity"
+        android:textAllCaps="false"
+        android:textSize="20dp"
+        tools:ignore="HardcodedText,RtlSymmetry,SpUsage,UnusedAttribute" />
+    <Button
+        android:id="@+id/view_customer_order"
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:layout_gravity="center"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginBottom="10dp"
+        android:background="@drawable/createnew"
+        android:drawableEnd="@drawable/ic_chevron_right_black_24dp"
+        android:gravity="start|center_vertical"
+        android:paddingStart="15dp"
+        android:stateListAnimator="@null"
+        android:text="View Customer Orders"
         android:textAlignment="gravity"
         android:textAllCaps="false"
         android:textSize="20dp"

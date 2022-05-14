@@ -18,6 +18,9 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
+            android:name=".Activity.Order_Now"
+            android:exported="false" />
+        <activity
             android:name=".Admin_panel.View_Activity_Admins"
             android:exported="false" />
         <activity
