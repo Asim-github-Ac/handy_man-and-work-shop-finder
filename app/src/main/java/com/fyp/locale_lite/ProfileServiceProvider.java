@@ -269,10 +269,11 @@ public class ProfileServiceProvider extends AppCompatActivity implements View.On
                 bundle.putString("qualifications",Qualifications.getText().toString());
                 bundle.putString("yearsOfExperience",Experience.getText().toString());
                 final String phonenumber = getIntent().getStringExtra("phonenumber");
-                Intent intent = new Intent(ProfileServiceProvider.this, sp_homepage.class);
+                Intent intent = new Intent(ProfileServiceProvider.this, asklocationSP.class);
                 intent.putExtra("phonenumber", phonenumber);
                 intent.putExtras(bundle);
                 startActivity(intent);
+                finish();
             }
         }
         //if the clicked button is choose

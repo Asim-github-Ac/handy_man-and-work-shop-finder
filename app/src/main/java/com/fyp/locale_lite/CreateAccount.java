@@ -131,8 +131,6 @@ public class CreateAccount<findView> extends AppCompatActivity implements Adapte
                 }
                 else    {
                     progressBar.setVisibility(View.VISIBLE);
-
-
                     final Bundle bundle = new Bundle();
                     bundle.putString("firstname",firstname);
                     bundle.putString("lastname",lastname);
@@ -173,6 +171,7 @@ public class CreateAccount<findView> extends AppCompatActivity implements Adapte
                                                         intent.putExtra("phonenumber",phoneNumber);
                                                         intent.putExtras(bundle);
                                                         startActivity(intent);
+                                                        finish();
                                                     }
                                                     else{
                                                         Toast.makeText(CreateAccount.this, "This Email Id is already registered",Toast.LENGTH_LONG).show();
@@ -234,18 +233,12 @@ public class CreateAccount<findView> extends AppCompatActivity implements Adapte
                     password.setError("Passwords do not match. Try again!");
                 else    {
                     progressBar.setVisibility(View.VISIBLE);
-
-
-
-
                     final Bundle bundle = new Bundle();
                     bundle.putString("firstname",firstname);
                     bundle.putString("lastname",lastname);
                     bundle.putString("emailid",emailid);
                     bundle.putString("phonenum",phonenum);
                     bundle.putString("city",city);
-
-
                     mAuth.createUserWithEmailAndPassword(emailid,pword)
                             .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                                 @Override
@@ -271,11 +264,12 @@ public class CreateAccount<findView> extends AppCompatActivity implements Adapte
                                                         Toast.makeText(CreateAccount.this, "This Phone Number is already registered", Toast.LENGTH_SHORT).show();
                                                     }
                                                     else if (p==0 && task.isSuccessful()) {
-                                                        String phoneNumber = "+91" + phonenum;
+                                                        String phoneNumber = "+92" + phonenum;
                                                         Intent intent = new Intent(CreateAccount.this, asklocation.class);
                                                         intent.putExtra("phonenumber", phoneNumber);
                                                         intent.putExtras(bundle);
                                                         startActivity(intent);
+                                                        finish();
                                                     }
                                                     else{
                                                         Toast.makeText(CreateAccount.this, "This Email Id is already registered",Toast.LENGTH_LONG).show();

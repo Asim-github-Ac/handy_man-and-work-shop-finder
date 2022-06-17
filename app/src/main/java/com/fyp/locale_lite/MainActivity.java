@@ -90,9 +90,6 @@ Handler handler;
                                     }
                                     else{
                                         Toast.makeText(MainActivity.this,"Not verified yet",Toast.LENGTH_SHORT).show();
-                                        Intent intent = new Intent(MainActivity.this, sp_homepage.class);
-                                        startActivity(intent);
-                                        finish();
 
                                     }
                                 }

@@ -24,7 +24,7 @@
             android:layout_gravity="center_horizontal"
             android:layout_width="150dp"
             android:layout_height="150dp"
-            android:src="@drawable/dp"/>
+            android:src="@drawable/person"/>
 
         <TextView
             android:layout_width="wrap_content"

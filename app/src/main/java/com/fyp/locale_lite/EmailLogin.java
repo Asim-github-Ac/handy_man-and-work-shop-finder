@@ -135,14 +135,14 @@ public class EmailLogin extends AppCompatActivity {
                                                                 startActivity(intent);
                                                                 finish();
                                                             } else {
-//                                                                Toast.makeText(EmailLogin.this, "Not verified yet", Toast.LENGTH_SHORT).show();
+                                                                Toast.makeText(EmailLogin.this, "Not verified yet", Toast.LENGTH_SHORT).show();
 //                                                                Intent intent = new Intent(EmailLogin.this, Pending.class);
 //                                                                startActivity(intent);
 //                                                                finish();
-                                                                Toast.makeText(EmailLogin.this, "Logged in", Toast.LENGTH_SHORT).show();
-                                                                Intent intent = new Intent(EmailLogin.this, sp_homepage.class);
-                                                                startActivity(intent);
-                                                                finish();
+//                                                                Toast.makeText(EmailLogin.this, "Logged in", Toast.LENGTH_SHORT).show();
+//                                                                Intent intent = new Intent(EmailLogin.this, sp_homepage.class);
+//                                                                startActivity(intent);
+//                                                                finish();
                                                             }
                                                         }
 

@@ -125,7 +125,7 @@ public class asklocationSP extends FragmentActivity implements OnMapReadyCallbac
                 FirebaseUser firebaseUser = FirebaseAuth.getInstance().getCurrentUser();
                 String userid = firebaseUser.getUid();
                 sp.setId(userid);
-                sp.setPending(false);
+                sp.setPending(true);
 
                 FirebaseDatabase.getInstance().getReference("ServiceProviders")
                         .child(FirebaseAuth.getInstance().getCurrentUser().getUid())

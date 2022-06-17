@@ -143,6 +143,7 @@ public class asklocation extends FragmentActivity implements OnMapReadyCallback,
                         }
                         Intent intent = new Intent(asklocation.this, Customer_DashBoard.class);
                         startActivity(intent);
+                        finish();
                     }
                 });
             }

@@ -41,8 +41,8 @@ public class sp_homepage extends AppCompatActivity {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 ServiceProviders c = dataSnapshot.getValue(ServiceProviders.class);
-//                spLat = c.getLatitude();
-  //              spLng = c.getLongitude();
+                spLat = c.getLatitude();
+                spLng = c.getLongitude();
             }
 
             @Override
