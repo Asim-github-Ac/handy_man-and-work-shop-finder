@@ -42,10 +42,12 @@ public class CreateAccount<findView> extends AppCompatActivity implements Adapte
     Button next, submit;
     Spinner cityList, categories;
     Bundle bundle;
+    String name,id,email;
     RadioGroup gender, accType;
     RadioButton male, female, others, typecus, typeser;
     ProgressBar progressBar;
     private FirebaseAuth mAuth;
+    Intent intent;
 
     int p=0;
     @Override
@@ -71,6 +73,12 @@ public class CreateAccount<findView> extends AppCompatActivity implements Adapte
         progressBar = (ProgressBar) findViewById(R.id.pBar);
         progressBar.setVisibility(View.GONE);
 
+        intent=getIntent();
+        name=intent.getStringExtra("name");
+        email= intent.getStringExtra("email");
+        id=intent.getStringExtra("id");
+        emailId.setText(email);
+        firstName.setText(name);
         mAuth = FirebaseAuth.getInstance();
 
 
@@ -89,7 +97,7 @@ public class CreateAccount<findView> extends AppCompatActivity implements Adapte
             public void onClick(View view) {
                 final String firstname = firstName.getText().toString().trim();
                 final String lastname = lastName.getText().toString().trim();
-                final String emailid = emailId.getText().toString();
+                final String emailid = emailId.getText().toString().trim();
                 final String phonenum = phoneNum.getText().toString();
                 final String city = cityList.getSelectedItem().toString();
                 final String pword = password.getText().toString();
@@ -197,7 +205,7 @@ public class CreateAccount<findView> extends AppCompatActivity implements Adapte
             public void onClick(View view) {
                 final String firstname = firstName.getText().toString().trim();
                 final String lastname = lastName.getText().toString().trim();
-                final String emailid = emailId.getText().toString();
+                final String emailid = emailId.getText().toString().trim();
                 final String phonenum = phoneNum.getText().toString();
                 final String city = cityList.getSelectedItem().toString();
                 final String pword = password.getText().toString();

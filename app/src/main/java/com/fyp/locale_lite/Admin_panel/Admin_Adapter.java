@@ -50,19 +50,22 @@ public class Admin_Adapter extends RecyclerView.Adapter<Admin_Adapter.myHolder> 
             @Override
             public void onClick(View v) {
 
-                FirebaseFirestore firestore=FirebaseFirestore.getInstance();
-                firestore.collection("WorkShopFinder").document("data").collection("category").document().delete().addOnSuccessListener(new OnSuccessListener<Void>() {
-                    @Override
-                    public void onSuccess(Void unused) {
-
-                    }
-                }).addOnFailureListener(new OnFailureListener() {
-                    @Override
-                    public void onFailure(@NonNull Exception e) {
-                        Toast.makeText(context, "Error"+e.getMessage(), Toast.LENGTH_SHORT).show();
-                    }
-                });
-            }
+                serviceProviderModelList.remove(position);
+                notifyItemRemoved(position);
+                notifyDataSetChanged();
+//                FirebaseFirestore firestore=FirebaseFirestore.getInstance();
+//                firestore.collection("WorkShopFinder").document("data").collection("category").document().delete().addOnSuccessListener(new OnSuccessListener<Void>() {
+//                    @Override
+//                    public void onSuccess(Void unused) {
+//
+//                    }
+//                }).addOnFailureListener(new OnFailureListener() {
+//                    @Override
+//                    public void onFailure(@NonNull Exception e) {
+//                        Toast.makeText(context, "Error"+e.getMessage(), Toast.LENGTH_SHORT).show();
+//                    }
+//                });
+                }
         });
     }
 

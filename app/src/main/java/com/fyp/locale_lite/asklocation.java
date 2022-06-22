@@ -120,7 +120,7 @@ public class asklocation extends FragmentActivity implements OnMapReadyCallback,
                 String firstname = bundle.getString("firstname");
                 String lastname = bundle.getString("lastname");
                 String emailid = bundle.getString("emailid");
-                String phonenum = bundle.getString("phonenum");
+                String phonenum = bundle.getString("phonenumber");
                 String lati= String.valueOf(position.latitude);
                 String longi=String.valueOf(position.longitude);
                 String city = bundle.getString("city");

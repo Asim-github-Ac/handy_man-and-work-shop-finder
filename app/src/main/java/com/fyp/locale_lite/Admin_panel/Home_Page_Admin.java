@@ -37,9 +37,13 @@ public class Home_Page_Admin extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
+                startActivity(new Intent(getApplicationContext(), CarigarActivity.class));
+
+/*
                 Intent intent=new Intent(getApplicationContext(),View_Activity_Admins.class);
                 intent.putExtra("key","Mechanics");
                 startActivity(intent);
+*/
             }
         });
         btncustomer.setOnClickListener(new View.OnClickListener() {

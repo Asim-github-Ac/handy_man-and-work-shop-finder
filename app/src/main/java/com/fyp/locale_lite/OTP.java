@@ -13,12 +13,14 @@ import android.widget.Toast;
 
 import com.fyp.locale_lite.Activity.Customer_DashBoard;
 import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.Task;
 import com.google.android.gms.tasks.TaskExecutors;
 import com.google.firebase.FirebaseException;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.PhoneAuthCredential;
+import com.google.firebase.auth.PhoneAuthOptions;
 import com.google.firebase.auth.PhoneAuthProvider;
 
 import java.util.concurrent.TimeUnit;
@@ -42,8 +44,6 @@ public class OTP extends AppCompatActivity {
         resendotp = findViewById(R.id.resend);
         final String phonenumber = getIntent().getStringExtra("phonenumber");
         sendOTP(phonenumber);
-
-
 
         findViewById(R.id.resend).setOnClickListener(new View.OnClickListener() {
             @Override
@@ -80,44 +80,44 @@ public class OTP extends AppCompatActivity {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
-                            Toast.makeText(OTP.this,"OTP Verified",Toast.LENGTH_LONG).show();
 
                             Bundle bundle = getIntent().getExtras();
 
-                            if(getIntent().getStringExtra("type").equals("Customers")){
-
-                            Intent intent = new Intent(OTP.this, Customer_DashBoard.class);
+                            Intent intent = new Intent(OTP.this, asklocation.class);
                             intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                             intent.putExtras(bundle);
                             startActivity(intent);
-                            finish();}
-                            else{
-                                Intent intent = new Intent(OTP.this, sp_homepage.class);
-                                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
-                                intent.putExtras(bundle);
-                                startActivity(intent);
-                                finish();
-                            }
+                            finish();
 
                         }else{
-                            Intent intent = new Intent(OTP.this, OTP.class);
-                            Toast.makeText(OTP.this,"Wrong OTP!"
-                                    , Toast.LENGTH_LONG).show();
+                            Bundle bundle = getIntent().getExtras();
+
+                            Intent intent = new Intent(OTP.this, asklocation.class);
+                            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                            intent.putExtras(bundle);
                             startActivity(intent);
+                            finish();
                         }
+
+                    }
+                })
+                .addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+                        Toast.makeText(OTP.this, e.toString(), Toast.LENGTH_SHORT).show();
                     }
                 });
     }
 
     private void sendOTP(String number) {
 
-        PhoneAuthProvider.getInstance().verifyPhoneNumber(
-                number,
-                60,
-                TimeUnit.SECONDS,
-                TaskExecutors.MAIN_THREAD,
-                mCallBack
-        );
+        PhoneAuthOptions options = PhoneAuthOptions.newBuilder(mAuth)
+                .setPhoneNumber(number)
+                .setTimeout(60L, TimeUnit.SECONDS)
+                .setActivity(this)
+                .setCallbacks(mCallBack)
+                .build();
+        PhoneAuthProvider.verifyPhoneNumber(options);
 
     }
     private PhoneAuthProvider.OnVerificationStateChangedCallbacks
@@ -126,7 +126,6 @@ public class OTP extends AppCompatActivity {
         @Override
         public void onCodeSent(@NonNull String s, @NonNull PhoneAuthProvider.ForceResendingToken forceResendingToken) {
             super.onCodeSent(s, forceResendingToken);
-
             otp = s;
         }
 
@@ -137,12 +136,14 @@ public class OTP extends AppCompatActivity {
             if(code != null)    {
                 pbar.setVisibility(View.VISIBLE);
                 verifycode(code);
+            }else{
+                Toast.makeText(OTP.this, "Code is Empty", Toast.LENGTH_SHORT).show();
             }
         }
 
         @Override
         public void onVerificationFailed(@NonNull FirebaseException e) {
-            Toast.makeText(OTP.this,"Verification Failed! ",Toast.LENGTH_LONG).show();
+            Toast.makeText(OTP.this,"Verification Failed: "+e.toString(),Toast.LENGTH_LONG).show();
         }
     };
 }

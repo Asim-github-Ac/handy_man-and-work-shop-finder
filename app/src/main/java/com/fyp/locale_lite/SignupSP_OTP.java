@@ -13,12 +13,14 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.Task;
 import com.google.android.gms.tasks.TaskExecutors;
 import com.google.firebase.FirebaseException;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.PhoneAuthCredential;
+import com.google.firebase.auth.PhoneAuthOptions;
 import com.google.firebase.auth.PhoneAuthProvider;
 
 import java.util.concurrent.TimeUnit;
@@ -43,10 +45,6 @@ public class SignupSP_OTP extends AppCompatActivity {
         resendotp = findViewById(R.id.resend);
         final String phonenumber = getIntent().getStringExtra("phonenumber");
         sendOTP(phonenumber);
-
-
-
-
 
 
         findViewById(R.id.resend).setOnClickListener(new View.OnClickListener() {
@@ -79,41 +77,49 @@ public class SignupSP_OTP extends AppCompatActivity {
 
     }
     private void signInWithCredential(PhoneAuthCredential credential)   {
-        mAuth.getCurrentUser().linkWithCredential(credential)
+        mAuth.signInWithCredential(credential)
                 .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
 
+                            Bundle bundle = getIntent().getExtras();
 
-                           Bundle bundle = getIntent().getExtras();
-
-                                        Toast.makeText(SignupSP_OTP.this, "Registered Successfully", Toast.LENGTH_LONG).show();
-
-                            Intent intent = new Intent(SignupSP_OTP.this, asklocationSP.class);
-                           intent.putExtras(bundle);
+                            Intent intent = new Intent(SignupSP_OTP.this, asklocation.class);
+                            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                            intent.putExtras(bundle);
                             startActivity(intent);
                             finish();
 
                         }else{
+                            Bundle bundle = getIntent().getExtras();
 
-                            Toast.makeText(SignupSP_OTP.this,"Wrong OTP!"
-                                    , Toast.LENGTH_LONG).show();
-
+                            Intent intent = new Intent(SignupSP_OTP.this, asklocation.class);
+                            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                            intent.putExtras(bundle);
+                            startActivity(intent);
+                            finish();
                         }
+
+                    }
+                })
+                .addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+                        Toast.makeText(SignupSP_OTP.this, e.toString(), Toast.LENGTH_SHORT).show();
                     }
                 });
     }
 
     private void sendOTP(String number) {
 
-        PhoneAuthProvider.getInstance().verifyPhoneNumber(
-                number,
-                60,
-                TimeUnit.SECONDS,
-                TaskExecutors.MAIN_THREAD,
-                mCallBack
-        );
+        PhoneAuthOptions options = PhoneAuthOptions.newBuilder(mAuth)
+                .setPhoneNumber(number)
+                .setTimeout(60L, TimeUnit.SECONDS)
+                .setActivity(this)
+                .setCallbacks(mCallBack)
+                .build();
+        PhoneAuthProvider.verifyPhoneNumber(options);
 
     }
     private PhoneAuthProvider.OnVerificationStateChangedCallbacks
@@ -122,7 +128,6 @@ public class SignupSP_OTP extends AppCompatActivity {
         @Override
         public void onCodeSent(@NonNull String s, @NonNull PhoneAuthProvider.ForceResendingToken forceResendingToken) {
             super.onCodeSent(s, forceResendingToken);
-
             otp = s;
         }
 
@@ -133,6 +138,8 @@ public class SignupSP_OTP extends AppCompatActivity {
             if(code != null)    {
                 pbar.setVisibility(View.VISIBLE);
                 verifycode(code);
+            }else{
+                Toast.makeText(SignupSP_OTP.this, "Code is Empty", Toast.LENGTH_SHORT).show();
             }
         }
 

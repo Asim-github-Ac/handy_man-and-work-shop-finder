@@ -45,20 +45,12 @@
     },
     {
       "client_info": {
-        "mobilesdk_app_id": "1:525085736032:android:21f2024f7e1c2091971705",
+        "mobilesdk_app_id": "1:525085736032:android:0e1fc2058713ee5b971705",
         "android_client_info": {
-          "package_name": "com.example.locale_lite"
+          "package_name": "com.example.medical_rap_tracker"
         }
       },
       "oauth_client": [
-        {
-          "client_id": "525085736032-3g8b98jq3d92e46etiprebiihk10pvu5.apps.googleusercontent.com",
-          "client_type": 1,
-          "android_info": {
-            "package_name": "com.example.locale_lite",
-            "certificate_hash": "9926b4dee31423130ff12ecb8ae8c7b197900feb"
-          }
-        },
         {
           "client_id": "525085736032-48r5987puqdkfnf2m17vnm9avgq7c4iq.apps.googleusercontent.com",
           "client_type": 3
@@ -118,6 +110,133 @@
       },
       "oauth_client": [
         {
+          "client_id": "525085736032-0p143bo25l2l11j3n9f42qujspu7i5vo.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.fyp.locale_lite",
+            "certificate_hash": "f1fe4c7c924e32177eb5d61207b0a9e06ca13c40"
+          }
+        },
+        {
+          "client_id": "525085736032-65lehl94ua884sv30t8nr5v979i67ri2.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.fyp.locale_lite",
+            "certificate_hash": "9926b4dee31423130ff12ecb8ae8c7b197900feb"
+          }
+        },
+        {
+          "client_id": "525085736032-48r5987puqdkfnf2m17vnm9avgq7c4iq.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDI9JM-XRv0FENDlIY_V3kL2CEIRW4iCA8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "525085736032-48r5987puqdkfnf2m17vnm9avgq7c4iq.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:525085736032:android:a5039282ce4fb778971705",
+        "android_client_info": {
+          "package_name": "com.kvsn.builds.cap1"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "525085736032-7dbla7jp2e86hb33o8mrpj6ch86sph78.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.kvsn.builds.cap1",
+            "certificate_hash": "9926b4dee31423130ff12ecb8ae8c7b197900feb"
+          }
+        },
+        {
+          "client_id": "525085736032-48r5987puqdkfnf2m17vnm9avgq7c4iq.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDI9JM-XRv0FENDlIY_V3kL2CEIRW4iCA8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "525085736032-48r5987puqdkfnf2m17vnm9avgq7c4iq.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:525085736032:android:92d12c62672fa7c0971705",
+        "android_client_info": {
+          "package_name": "com.rap.medical_rap"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "525085736032-feleavf5nl65dii4ooq64vo9r4cf1ge6.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.rap.medical_rap",
+            "certificate_hash": "9926b4dee31423130ff12ecb8ae8c7b197900feb"
+          }
+        },
+        {
+          "client_id": "525085736032-48r5987puqdkfnf2m17vnm9avgq7c4iq.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDI9JM-XRv0FENDlIY_V3kL2CEIRW4iCA8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "525085736032-48r5987puqdkfnf2m17vnm9avgq7c4iq.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:525085736032:android:675fa605619526ab971705",
+        "android_client_info": {
+          "package_name": "com.rap.medical_rap_tracker"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "525085736032-2le6gdv61dr7ed6afuf5djl31enr236o.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.rap.medical_rap_tracker",
+            "certificate_hash": "9926b4dee31423130ff12ecb8ae8c7b197900feb"
+          }
+        },
+        {
           "client_id": "525085736032-48r5987puqdkfnf2m17vnm9avgq7c4iq.apps.googleusercontent.com",
           "client_type": 3
         }
@@ -169,12 +288,86 @@
     },
     {
       "client_info": {
+        "mobilesdk_app_id": "1:525085736032:android:78fba1c1829c35e6971705",
+        "android_client_info": {
+          "package_name": "com.tiktok.home_solutions"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "525085736032-fmchloloscbbc6ktpo0ti7s41jir2hd8.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.tiktok.home_solutions",
+            "certificate_hash": "9926b4dee31423130ff12ecb8ae8c7b197900feb"
+          }
+        },
+        {
+          "client_id": "525085736032-48r5987puqdkfnf2m17vnm9avgq7c4iq.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDI9JM-XRv0FENDlIY_V3kL2CEIRW4iCA8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "525085736032-48r5987puqdkfnf2m17vnm9avgq7c4iq.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
         "mobilesdk_app_id": "1:525085736032:android:47c06b40bde9c0bb971705",
         "android_client_info": {
           "package_name": "com.tiktok.medical_tracker"
         }
       },
       "oauth_client": [
+        {
+          "client_id": "525085736032-48r5987puqdkfnf2m17vnm9avgq7c4iq.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDI9JM-XRv0FENDlIY_V3kL2CEIRW4iCA8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "525085736032-48r5987puqdkfnf2m17vnm9avgq7c4iq.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:525085736032:android:bedb7b156e2763b9971705",
+        "android_client_info": {
+          "package_name": "in.macrocodes.bddingapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "525085736032-nsmip7jepi9a8kcmniv7kmh311kuab87.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "in.macrocodes.bddingapp",
+            "certificate_hash": "9926b4dee31423130ff12ecb8ae8c7b197900feb"
+          }
+        },
         {
           "client_id": "525085736032-48r5987puqdkfnf2m17vnm9avgq7c4iq.apps.googleusercontent.com",
           "client_type": 3

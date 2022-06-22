@@ -25,6 +25,7 @@ public class View_Activity_Admins extends AppCompatActivity {
     RecyclerView recyclerView;
     String path = "WorkShopFinder";
     ProgressDialog progressDialog;
+    Admin_Adapter admin_adapter;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -54,7 +55,9 @@ public class View_Activity_Admins extends AppCompatActivity {
                     List<ServiceProviderModel> models=queryDocumentSnapshots.toObjects(ServiceProviderModel.class);
                     serviceProviderModelList.addAll(models);
                     recyclerView.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
-                    recyclerView.setAdapter(new Admin_Adapter(getApplicationContext(),serviceProviderModelList));
+                    admin_adapter=new Admin_Adapter(getApplicationContext(),serviceProviderModelList);
+                    recyclerView.setAdapter(admin_adapter);
+                    admin_adapter.notifyDataSetChanged();
 
                 }
             }

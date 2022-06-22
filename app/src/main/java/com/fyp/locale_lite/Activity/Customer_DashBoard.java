@@ -29,7 +29,7 @@ import java.util.List;
 
 public class Customer_DashBoard extends AppCompatActivity {
 
-    Button btnorder,logout;
+    Button btnorder,logout,rating;
     RecyclerView recyclerView;
     CustomerAdapter customerAdapter;
     List<ServiceProviderModel >serviceProviderModel=new ArrayList<>();
@@ -40,6 +40,7 @@ public class Customer_DashBoard extends AppCompatActivity {
         setContentView(R.layout.activity_customer_dash_board);
         btnorder=findViewById(R.id.addorder);
         logout=findViewById(R.id.logout);
+        rating=findViewById(R.id.ratings);
         recyclerView=findViewById(R.id.recyclervieworder);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         btnorder.setOnClickListener(new View.OnClickListener() {
@@ -66,6 +67,7 @@ public class Customer_DashBoard extends AppCompatActivity {
 
                     }
                 });
+
                 builder.setPositiveButton("No",new DialogInterface.OnClickListener(){
                     @Override
                     public void onClick(DialogInterface dialogInterface,int i){
@@ -77,6 +79,12 @@ public class Customer_DashBoard extends AppCompatActivity {
 
                 AlertDialog alertDialog=builder.create();
                 alertDialog.show();
+            }
+        });
+        rating.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getApplicationContext(),Ratings.class));
             }
         });
     }

@@ -2,19 +2,24 @@ package com.fyp.locale_lite;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 import androidx.viewpager.widget.ViewPager;
 
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Handler;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.Toast;
 
 import com.fyp.locale_lite.Activity.Customer_DashBoard;
+import com.fyp.locale_lite.Activity.Google_Authentication;
 import com.fyp.locale_lite.Admin_panel.Admin_Login;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -25,7 +30,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 public class MainActivity extends AppCompatActivity{
-
+    Toolbar toolbar;
     FirebaseUser firebaseUser;
     String userid;
     LinearLayout mainact1,mainact2;
@@ -35,13 +40,14 @@ Handler handler;
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
+        toolbar = findViewById(R.id.toolbar);
         ViewPager viewPager = (ViewPager) findViewById(R.id.startPager);
         ImageAdapter adapter = new ImageAdapter(this);
         viewPager.setAdapter(adapter);
         mainact1=findViewById(R.id.mainact1);
         mainact2=findViewById(R.id.mainact2);
-
+        toolbar.setTitleTextColor(getResources().getColor(R.color.white));
+        setSupportActionBar(toolbar);
 
 
         firebaseUser = FirebaseAuth.getInstance().getCurrentUser();
@@ -89,7 +95,10 @@ Handler handler;
                                         finish();
                                     }
                                     else{
-                                        Toast.makeText(MainActivity.this,"Not verified yet",Toast.LENGTH_SHORT).show();
+                                        Intent intent = new Intent(MainActivity.this, Google_Authentication.class);
+                                        startActivity(intent);
+                                        finish();
+
 
                                     }
                                 }
@@ -121,7 +130,7 @@ Handler handler;
         createNew.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(MainActivity.this, CreateAccount.class);
+                Intent intent = new Intent(MainActivity.this, Google_Authentication.class);
                 startActivity(intent);
             }
         });
@@ -141,6 +150,24 @@ Handler handler;
             }
         });
     }
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.admin_optional_menu, menu);
+        return super.onCreateOptionsMenu(menu);
+    }
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.emp:
+                startActivity(new Intent(getApplicationContext(), Admin_Login.class));
+                break;
+            default:
+                Toast.makeText(getApplicationContext(), "Item not found", Toast.LENGTH_SHORT).show();
+                break;
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
     @Override
     public void onBackPressed() {
 
