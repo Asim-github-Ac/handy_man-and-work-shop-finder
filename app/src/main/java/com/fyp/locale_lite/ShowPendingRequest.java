@@ -13,6 +13,8 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
@@ -20,6 +22,8 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.QuerySnapshot;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -38,10 +42,12 @@ public class ShowPendingRequest extends AppCompatActivity {
     String userid,requestid;
     List<RequestBox> mchat;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_show_pending_request);
+
 
         name = findViewById(R.id.chat_name);
         job = findViewById(R.id.chat_job);
@@ -73,7 +79,7 @@ public class ShowPendingRequest extends AppCompatActivity {
                 name.setText(mname);
                 job.setText(s.getPhonenum());
                 dp.setImageResource(R.drawable.cuslogo);
-                readMessage(firebaseUser.getUid(),userid);
+              //  readMessage(firebaseUser.getUid(),userid);
             }
 
             @Override

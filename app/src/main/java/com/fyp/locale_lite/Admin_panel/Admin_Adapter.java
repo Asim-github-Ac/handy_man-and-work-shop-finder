@@ -12,6 +12,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.fyp.locale_lite.Adapters.CustomerAdapter;
+import com.fyp.locale_lite.Model.Order_model;
 import com.fyp.locale_lite.Model.ServiceProviderModel;
 import com.fyp.locale_lite.R;
 import com.google.android.gms.tasks.OnFailureListener;
@@ -23,9 +24,9 @@ import java.util.List;
 public class Admin_Adapter extends RecyclerView.Adapter<Admin_Adapter.myHolder> {
 
     Context context;
-    List<ServiceProviderModel> serviceProviderModelList;
+    List<Order_model> serviceProviderModelList;
 
-    public Admin_Adapter(Context context, List<ServiceProviderModel> serviceProviderModelList) {
+    public Admin_Adapter(Context context, List<Order_model> serviceProviderModelList) {
         this.context = context;
         this.serviceProviderModelList = serviceProviderModelList;
     }
@@ -41,11 +42,15 @@ public class Admin_Adapter extends RecyclerView.Adapter<Admin_Adapter.myHolder> 
     @Override
     public void onBindViewHolder(@NonNull Admin_Adapter.myHolder holder, int position) {
 
-        ServiceProviderModel serviceProviderModel=serviceProviderModelList.get(position);
-        holder.tvfname.setText("FName : "+serviceProviderModel.getFname());
-        holder.tvlname.setText("LName : "+serviceProviderModel.getLname());
-        holder.tvemail.setText("Email : "+serviceProviderModel.getEmailid());
-        holder.tvnumber.setText("Number : "+serviceProviderModel.getPhonenumber());
+        Order_model orderModel=serviceProviderModelList.get(position);
+//        holder.tvfname.setText("FName : "+serviceProviderModel.getMechanic_email());
+//        holder.tvlname.setText("LName : "+serviceProviderModel.getLname());
+//        holder.tvemail.setText("Email : "+serviceProviderModel.getEmailid());
+//        holder.tvnumber.setText("Number : "+serviceProviderModel.getPhonenumber());
+        holder.tvfname.setText("Customer Email : "+orderModel.getCustomer_email());
+        holder.tvlname.setText("Mechanic Number : "+orderModel.getMechanic_Phone());
+        holder.tvemail.setText("Mechanic Email : "+orderModel.getMechanic_email());
+        holder.tvnumber.setText("Mechanic City : "+orderModel.getMechanic_city());
         holder.btndell.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

@@ -5,6 +5,8 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 
+import com.fyp.locale_lite.Activity.Serviceprovider;
+import com.fyp.locale_lite.PendingDashBoard.PendingDashBoard;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -132,7 +134,7 @@ public class sp_homepage extends AppCompatActivity {
         Button b = (Button)v;
         String buttontext = b.getText().toString();
 
-        Intent intent = new Intent(sp_homepage.this,RequestStatus.class);
+        Intent intent = new Intent(sp_homepage.this, PendingDashBoard.class);
         intent.putExtra("buttontext",buttontext);
         startActivity(intent);
     }
@@ -141,5 +143,14 @@ public class sp_homepage extends AppCompatActivity {
         intent.putExtra("buttontext","Completed Requests");
         startActivity(intent);
 
+    }
+
+    public void onServiceapprove(View view) {
+        Button b = (Button)view;
+        String buttontext = b.getText().toString();
+
+        Intent intent = new Intent(sp_homepage.this, Serviceprovider.class);
+        intent.putExtra("buttontext",buttontext);
+        startActivity(intent);
     }
 }

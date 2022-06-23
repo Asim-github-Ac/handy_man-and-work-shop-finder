@@ -41,13 +41,13 @@ public class Customer_DashBoard extends AppCompatActivity {
         btnorder=findViewById(R.id.addorder);
         logout=findViewById(R.id.logout);
         rating=findViewById(R.id.ratings);
-        recyclerView=findViewById(R.id.recyclervieworder);
-        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+
         btnorder.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-                GetData();
+                startActivity(new Intent(getApplicationContext(),Customer_Orders.class));
+//                GetData();
             }
         });
         logout.setOnClickListener(new View.OnClickListener() {
@@ -89,32 +89,5 @@ public class Customer_DashBoard extends AppCompatActivity {
         });
     }
 
-    private void GetData() {
-        recyclerView.setVisibility(View.VISIBLE);
-        FirebaseFirestore firebaseFirestore=FirebaseFirestore.getInstance();
-        firebaseFirestore.collection("WorkShopFinder").document("data").collection("category").get().addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
-            @Override
-            public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
 
-                if (queryDocumentSnapshots.isEmpty()){
-                    Toast.makeText(Customer_DashBoard.this, "Record Not Found", Toast.LENGTH_SHORT).show();
-                }
-                else {
-                    List<ServiceProviderModel> serviceProviderModelList=queryDocumentSnapshots.toObjects(ServiceProviderModel.class);
-                    serviceProviderModel.addAll(serviceProviderModelList);
-                    customerAdapter=new CustomerAdapter(getApplicationContext(),serviceProviderModelList);
-                    recyclerView.setAdapter(customerAdapter);
-
-                }
-            }
-        }).addOnFailureListener(new OnFailureListener() {
-            @Override
-            public void onFailure(@NonNull Exception e) {
-                Toast.makeText(Customer_DashBoard.this, "Error"+e.getMessage(), Toast.LENGTH_SHORT).show();
-            }
-        });
-
-
-
-    }
 }

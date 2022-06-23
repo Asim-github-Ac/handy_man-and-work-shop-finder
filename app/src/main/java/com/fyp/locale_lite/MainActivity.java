@@ -145,7 +145,7 @@ Handler handler;
         logIn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent i2 = new Intent(MainActivity.this, Login.class);
+                Intent i2 = new Intent(MainActivity.this, EmailLogin.class);
                 startActivity(i2);
             }
         });

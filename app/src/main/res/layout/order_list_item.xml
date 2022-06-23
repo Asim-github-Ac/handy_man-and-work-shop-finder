@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical">
     <androidx.cardview.widget.CardView
@@ -46,6 +46,22 @@
                 android:textStyle="bold"
                 android:id="@+id/mec_city"
                 android:text="Mechanic City"/>
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:text="Confirm Order"
+                android:id="@+id/corders"
+                android:background="@drawable/loginbutton"
+                android:layout_margin="20dp"
+                android:textColor="@color/white"
+                />
+            <ProgressBar
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/cbarorder"
+                android:layout_margin="10dp"
+                android:visibility="gone"
+                />
         </LinearLayout>
     </androidx.cardview.widget.CardView>
 

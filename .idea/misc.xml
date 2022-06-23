@@ -56,6 +56,7 @@
         <entry key="..\:/Users/Asim Mehar/Pictures/HandyMan-master/app/src/main/res/layout/activity_contact_us.xml" value="0.25" />
         <entry key="..\:/Users/Asim Mehar/Pictures/HandyMan-master/app/src/main/res/layout/activity_create_account.xml" value="0.22" />
         <entry key="..\:/Users/Asim Mehar/Pictures/HandyMan-master/app/src/main/res/layout/activity_customer_dash_board.xml" value="0.18" />
+        <entry key="..\:/Users/Asim Mehar/Pictures/HandyMan-master/app/src/main/res/layout/activity_customer_orders.xml" value="0.121875" />
         <entry key="..\:/Users/Asim Mehar/Pictures/HandyMan-master/app/src/main/res/layout/activity_directions_sp.xml" value="0.33" />
         <entry key="..\:/Users/Asim Mehar/Pictures/HandyMan-master/app/src/main/res/layout/activity_google_authentication.xml" value="0.22" />
         <entry key="..\:/Users/Asim Mehar/Pictures/HandyMan-master/app/src/main/res/layout/activity_home_page_admin.xml" value="0.25885416666666666" />
@@ -64,12 +65,14 @@
         <entry key="..\:/Users/Asim Mehar/Pictures/HandyMan-master/app/src/main/res/layout/activity_main2.xml" value="0.18" />
         <entry key="..\:/Users/Asim Mehar/Pictures/HandyMan-master/app/src/main/res/layout/activity_map_directions.xml" value="0.25" />
         <entry key="..\:/Users/Asim Mehar/Pictures/HandyMan-master/app/src/main/res/layout/activity_order_now.xml" value="0.27291666666666664" />
+        <entry key="..\:/Users/Asim Mehar/Pictures/HandyMan-master/app/src/main/res/layout/activity_pending_dash_board.xml" value="0.2682291666666667" />
         <entry key="..\:/Users/Asim Mehar/Pictures/HandyMan-master/app/src/main/res/layout/activity_profile_service_provider.xml" value="0.1203125" />
         <entry key="..\:/Users/Asim Mehar/Pictures/HandyMan-master/app/src/main/res/layout/activity_profile_sp.xml" value="0.27291666666666664" />
         <entry key="..\:/Users/Asim Mehar/Pictures/HandyMan-master/app/src/main/res/layout/activity_ratings.xml" value="0.67" />
         <entry key="..\:/Users/Asim Mehar/Pictures/HandyMan-master/app/src/main/res/layout/activity_request_status.xml" value="0.1203125" />
         <entry key="..\:/Users/Asim Mehar/Pictures/HandyMan-master/app/src/main/res/layout/activity_requests.xml" value="0.27291666666666664" />
         <entry key="..\:/Users/Asim Mehar/Pictures/HandyMan-master/app/src/main/res/layout/activity_select_providers.xml" value="0.1203125" />
+        <entry key="..\:/Users/Asim Mehar/Pictures/HandyMan-master/app/src/main/res/layout/activity_serviceprovider.xml" value="0.2682291666666667" />
         <entry key="..\:/Users/Asim Mehar/Pictures/HandyMan-master/app/src/main/res/layout/activity_show_active_requests.xml" value="0.27291666666666664" />
         <entry key="..\:/Users/Asim Mehar/Pictures/HandyMan-master/app/src/main/res/layout/activity_show_completed_request.xml" value="0.2682291666666667" />
         <entry key="..\:/Users/Asim Mehar/Pictures/HandyMan-master/app/src/main/res/layout/activity_show_pending_request.xml" value="0.2682291666666667" />

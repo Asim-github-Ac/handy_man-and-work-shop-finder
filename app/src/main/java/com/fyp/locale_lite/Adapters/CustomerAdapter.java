@@ -5,6 +5,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -17,22 +18,26 @@ import com.fyp.locale_lite.Model.Order_model;
 import com.fyp.locale_lite.Model.ServiceProviderModel;
 import com.fyp.locale_lite.R;
 import com.fyp.locale_lite.RequestAdapter;
+import com.fyp.locale_lite.ServiceProviders;
 import com.fyp.locale_lite.SharedPrefrence.PrefManager;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class CustomerAdapter extends RecyclerView.Adapter<CustomerAdapter.myHolder> {
     Context context;
-    List<ServiceProviderModel> serviceProviderModelList;
+    List<ServiceProviders> serviceProviderModelList;
+    String status;
 
-    public CustomerAdapter(Context context, List<ServiceProviderModel> serviceProviderModelList) {
+    public CustomerAdapter(Context context, List<ServiceProviders> serviceProviderModelList, String status) {
         this.context = context;
         this.serviceProviderModelList = serviceProviderModelList;
+        this.status = status;
     }
 
     @NonNull
@@ -46,19 +51,21 @@ public class CustomerAdapter extends RecyclerView.Adapter<CustomerAdapter.myHold
     @Override
     public void onBindViewHolder(@NonNull CustomerAdapter.myHolder holder, int position) {
 
-        ServiceProviderModel serviceProviderModel=serviceProviderModelList.get(position);
-        holder.fname.setText("Name : "+serviceProviderModel.getFname());
-        holder.lname.setText("LName : "+serviceProviderModel.getLname());
+        ServiceProviders serviceProviderModel=serviceProviderModelList.get(position);
+        holder.fname.setText("Name : "+serviceProviderModel.getFirstname());
+        holder.lname.setText("LName : "+serviceProviderModel.getLastname());
         holder.emailid.setText("Email : "+serviceProviderModel.getEmailid());
         holder.city.setText("City : "+serviceProviderModel.getCity());
-        holder.pnumber.setText("Phone : "+serviceProviderModel.getPhonenumber());
+        holder.pnumber.setText("Phone : "+serviceProviderModel.getPhonenum());
+        Picasso.with(context).load(serviceProviderModel.getProfilePicUrl()).into(holder.imgcircle);
         holder.confirmOder.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
                 PrefManager prefManager=new PrefManager(context);
                 holder.progressBar.setVisibility(View.VISIBLE);
-                ConfirmOrderNow(context,"id",holder,prefManager.getUserEmail(),serviceProviderModel.getEmailid(),serviceProviderModel.getCity(),serviceProviderModel.getPhonenumber());
+                ConfirmOrderNow("approve",context,"id",holder,prefManager.getUserEmail(),serviceProviderModel.getEmailid(),serviceProviderModel.getCity(),serviceProviderModel.getPhonenum());
+
             }
         });
     }
@@ -69,8 +76,9 @@ public class CustomerAdapter extends RecyclerView.Adapter<CustomerAdapter.myHold
     }
 
     public class myHolder extends RecyclerView.ViewHolder {
-        TextView fname,lname,pnumber,city,emailid;
+        TextView fname,lname,pnumber,city,emailid, longitude, latitude;
         Button confirmOder;
+        ImageView imgcircle;
 
         ProgressBar progressBar;
         public myHolder(@NonNull View itemView) {
@@ -80,15 +88,18 @@ public class CustomerAdapter extends RecyclerView.Adapter<CustomerAdapter.myHold
             pnumber=itemView.findViewById(R.id.phonenum);
             city= itemView.findViewById(R.id.city);
             emailid=itemView.findViewById(R.id.emailid);
+            longitude = itemView.findViewById(R.id.longitude);
+            latitude = itemView.findViewById(R.id.latitude);
+            imgcircle=itemView.findViewById(R.id.circleimg);
             confirmOder=itemView.findViewById(R.id.ordernow);
             progressBar=itemView.findViewById(R.id.pbarorder);
 
         }
     }
-    public void ConfirmOrderNow(Context context,String orderid,CustomerAdapter.myHolder holder,String emailid,String mechanic_email,String mechanic_city,String mechanic_phone){
+    public void ConfirmOrderNow(String path,Context context,String orderid,CustomerAdapter.myHolder holder,String emailid,String mechanic_email,String mechanic_city,String mechanic_phone){
         FirebaseFirestore firestore=FirebaseFirestore.getInstance();
         Order_model orderModel=new Order_model(emailid,mechanic_email,mechanic_city,mechanic_phone);
-         firestore.collection("WorkShopFinder").document("order").collection("customer").add(orderModel).addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
+         firestore.collection("WorkShopFinder").document("data").collection(path).add(orderModel).addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
              @Override
              public void onSuccess(DocumentReference documentReference) {
                  Toast.makeText(context, "Order Deliverd", Toast.LENGTH_SHORT).show();

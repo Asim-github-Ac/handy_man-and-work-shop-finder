@@ -19,6 +19,15 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
+            android:name=".Activity.Serviceprovider"
+            android:exported="false" />
+        <activity
+            android:name=".PendingDashBoard.PendingDashBoard"
+            android:exported="false" />
+        <activity
+            android:name=".Activity.Customer_Orders"
+            android:exported="false" />
+        <activity
             android:name=".Activity.Google_Authentication"
             android:exported="false" />
         <activity

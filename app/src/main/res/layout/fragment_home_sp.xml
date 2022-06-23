@@ -5,7 +5,7 @@
     android:layout_marginTop="15dp">
 
     <Button
-        android:onClick="onServiceClick"
+        android:onClick="onServiceapprove"
         android:id="@+id/request_active"
         android:layout_width="300dp"
         android:layout_height="70dp"

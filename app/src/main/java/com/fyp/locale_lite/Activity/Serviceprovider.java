@@ -1,4 +1,4 @@
-package com.fyp.locale_lite.Admin_panel;
+package com.fyp.locale_lite.Activity;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -9,8 +9,8 @@ import android.app.ProgressDialog;
 import android.os.Bundle;
 import android.widget.Toast;
 
+import com.fyp.locale_lite.Adapters.Order_Adapter;
 import com.fyp.locale_lite.Model.Order_model;
-import com.fyp.locale_lite.Model.ServiceProviderModel;
 import com.fyp.locale_lite.R;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -20,55 +20,48 @@ import com.google.firebase.firestore.QuerySnapshot;
 import java.util.ArrayList;
 import java.util.List;
 
-public class View_Activity_Admins extends AppCompatActivity {
-
-    List<Order_model> serviceProviderModelList=new ArrayList<>();
+public class Serviceprovider extends AppCompatActivity {
+    List<Order_model> order_modelList=new ArrayList<>();
     RecyclerView recyclerView;
-    String path = "WorkShopFinder";
     ProgressDialog progressDialog;
-    Admin_Adapter admin_adapter;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_view_admins);
-        recyclerView=findViewById(R.id.admin_recy);
-
+        setContentView(R.layout.activity_serviceprovider);
+        recyclerView=findViewById(R.id.recy_order_sp);
         progressDialog=new ProgressDialog(this);
-        progressDialog.setTitle("User List Finding");
-        progressDialog.setMessage("Loadings.......");
-        progressDialog.setCancelable(false);
+        progressDialog.setTitle("Order List");
+        progressDialog.setMessage("Loadings........");
+        progressDialog.setCancelable(true);
         progressDialog.show();
 
-        FetchData(path);
-
+        GetData();
     }
-
-    private void FetchData(String path1) {
+    public void GetData(){
         FirebaseFirestore firestore=FirebaseFirestore.getInstance();
-        firestore.collection(path1).document("data").collection("active").get().addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
+        firestore.collection("WorkShopFinder").document("data").collection("active").get().addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
             @Override
             public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
                 if (queryDocumentSnapshots.isEmpty()){
                     progressDialog.dismiss();
-                    Toast.makeText(View_Activity_Admins.this, "Record Not FOund", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(Serviceprovider.this, "Record Not Found", Toast.LENGTH_SHORT).show();
+
                 }else {
                     progressDialog.dismiss();
-                    List<Order_model> models=queryDocumentSnapshots.toObjects(Order_model.class);
-                    serviceProviderModelList.addAll(models);
+                    List<Order_model> order=queryDocumentSnapshots.toObjects(Order_model.class);
+                    order_modelList.addAll(order);
                     recyclerView.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
-                    admin_adapter=new Admin_Adapter(getApplicationContext(),serviceProviderModelList);
-                    recyclerView.setAdapter(admin_adapter);
-                    admin_adapter.notifyDataSetChanged();
+                    recyclerView.setAdapter(new Order_Adapter(getApplicationContext(),order_modelList));
 
                 }
             }
         }).addOnFailureListener(new OnFailureListener() {
             @Override
             public void onFailure(@NonNull Exception e) {
-
+                Toast.makeText(Serviceprovider.this, "error"+e.getMessage(), Toast.LENGTH_SHORT).show();
                 progressDialog.dismiss();
-                Toast.makeText(View_Activity_Admins.this, "Error"+e.getMessage(), Toast.LENGTH_SHORT).show();
             }
         });
     }
+
 }
