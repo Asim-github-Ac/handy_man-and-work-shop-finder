@@ -153,4 +153,16 @@ public class sp_homepage extends AppCompatActivity {
         intent.putExtra("buttontext",buttontext);
         startActivity(intent);
     }
+//    private void signOut() {
+//        mAuth.signOut();
+//        mGoogleSignInClient.signOut().addOnCompleteListener(this,
+//                new OnCompleteListener<Void>() {
+//                    @Override
+//                    public void onComplete(@NonNull Task<Void> task) {
+//                        Intent intent = new Intent(YourActivity.this, NextActivity.class);
+//                        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+//                        startActivity(intent);
+//                    }
+//                });
+//    }
 }

@@ -24,7 +24,7 @@ public class contact_us extends AppCompatActivity {
             @Override
             public void onClick(View view)  {
                 Intent intent = new Intent(Intent.ACTION_DIAL);
-                intent.setData(Uri.parse("tel:9546121700"));
+                intent.setData(Uri.parse("tel:03332947639"));
                 startActivity(intent);
             }
         });
@@ -33,7 +33,7 @@ public class contact_us extends AppCompatActivity {
             @Override
             public void onClick(View view)  {
                 Intent emailIntent = new Intent(Intent.ACTION_SENDTO, Uri.fromParts(
-                        "mailto","handyman@firebase.com", null));
+                        "mailto","zahraahmad@gmail.com", null));
                 emailIntent.putExtra(Intent.EXTRA_SUBJECT, "Handyman Support");
                 emailIntent.putExtra(Intent.EXTRA_TEXT, " ");
                 startActivity(Intent.createChooser(emailIntent, "Send email"));

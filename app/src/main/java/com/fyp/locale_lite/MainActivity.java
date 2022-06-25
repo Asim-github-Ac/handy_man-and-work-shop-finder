@@ -149,6 +149,14 @@ Handler handler;
                 startActivity(i2);
             }
         });
+        Button btnlogincustomer=findViewById(R.id.cutomerlogin);
+        btnlogincustomer.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i2 = new Intent(MainActivity.this, EmailLogin.class);
+                startActivity(i2);
+            }
+        });
     }
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -193,7 +201,4 @@ Handler handler;
         AlertDialog alertDialog = builder.create();
         alertDialog.show();
     }
-
-
-
 }

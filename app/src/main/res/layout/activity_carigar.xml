@@ -40,7 +40,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:text="Carpenter"
+                android:text="Mechanic"
                 android:textSize="24sp"
                 android:textColor="@color/black"
                 android:gravity="center"
@@ -63,7 +63,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:text="Ceiling Repair"
+                android:text="Denting Painting"
                 android:textSize="24sp"
                 android:textColor="@color/black"
                 android:gravity="center"
@@ -79,7 +79,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:text="Others"
+                android:text="Electricians"
                 android:textSize="24sp"
                 android:textColor="@color/black"
                 android:gravity="center"

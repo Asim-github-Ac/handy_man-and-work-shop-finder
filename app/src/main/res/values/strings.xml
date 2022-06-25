@@ -8,9 +8,9 @@
     <string-array name="Categories">
         <item>Select category</item>
         <item>AC Repairing</item>
-        <item>Carpenter</item>
-        <item>Ceiling Repair</item>
-        <item>Others</item>
+        <item>Denting Painting</item>
+        <item>Electricians</item>
+        <item>Mechanic</item>
 
     </string-array>
     <string name="title_activity_main2">Main2Activity</string>
